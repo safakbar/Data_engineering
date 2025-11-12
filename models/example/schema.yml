@@ -1,29 +1,38 @@
 
 version: 2
 
+models:
+  - name: my_first_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: my_second_dbt_model
+    description: "A starter dbt model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+  - name: stocks_model
+    description: "Hisse senedi verilerinden hesaplanmış min/max farklılıkları tablosu."
+    columns:
+      - name: high
+        description: "Yüksek fiyat sütunu (doğrudan kaynak tablodan)"
+      - name: differences
+        description: "Yüksek ve düşük fiyat arasındaki hesaplanmış fark"
+        tests:
+          - not_null
+
 sources:
   - name: stage
-    database: DBTPROJE          # Snowflake database adın
-    schema: stage               # stage schema'n
+    database: DBTPROJE
+    schema: stage
     tables:
       - name: stocks
-
-
-models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
-
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
