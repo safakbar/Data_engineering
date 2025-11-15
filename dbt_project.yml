@@ -40,6 +40,4 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
-  stock-new-project:
-    example:
       +enabled: true

@@ -30,6 +30,26 @@ models:
         tests:
           - not_null
 
+  - name: stg_stocks
+    description: "Hisse senedi verilerinden hesaplanmış min/max farklılıkları tablosu."
+    columns:
+      - name: high
+        description: "Yüksek fiyat sütunu (doğrudan kaynak tablodan)"
+      - name: differences
+        description: "Yüksek ve düşük fiyat arasındaki hesaplanmış fark"
+        tests:
+          - not_null     
+
+  - name: int_stocks_incremental
+    description: "Hisse senedi verilerinden hesaplanmış min/max farklılıkları tablosu."
+    columns:
+      - name: high
+        description: "Yüksek fiyat sütunu (doğrudan kaynak tablodan)"
+      - name: differences
+        description: "Yüksek ve düşük fiyat arasındaki hesaplanmış fark"
+        tests:
+          - not_null                  
+
 sources:
   - name: stage
     database: DBTPROJE
